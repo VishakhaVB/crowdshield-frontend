@@ -1,0 +1,86 @@
+{
+    "header": {
+        "title": "CrowdShield – Kumbh Mela Smart Platform",
+        "subtitle": "Digital Assistance for Pilgrims & Authorities during Kumbh Mela"
+    },
+    "hero": {
+        "title": "Who are you?",
+        "subtitle": "Early awareness. Calm action. Crowd safety without panic."
+    },
+    "roles": {
+        "authority": {
+            "title": "Authority Login",
+            "desc": "For police, disaster management, health services & administration",
+            "action": "Login Securely"
+        },
+        "pilgrim": {
+            "title": "Pilgrim Access",
+            "desc": "For devotees seeking guidance, safety alerts & services",
+            "action": "Enter as Pilgrim"
+        }
+    },
+    "login": {
+        "title": "Authority Login",
+        "subtitle": "Secure access for officials & staff",
+        "hint": "Please enter your verified credentials",
+        "userIdLabel": "User ID / Mobile",
+        "userIdPlaceholder": "Enter ID or Mobile Number",
+        "passwordLabel": "Password / PIN",
+        "passwordPlaceholder": "••••••••",
+        "forgotPassword": "Forgot Password?",
+        "submit": "Login Securely",
+        "demoNote": "Demo mode: Any credentials work",
+        "back": "Back to Home"
+    },
+    "footer": {
+        "secure": "Secure Access",
+        "verified": "Verified Authorities",
+        "privacy": "Privacy Protected"
+    },
+    "pilgrim": {
+        "header": {
+            "title": "CrowdShield",
+            "subtitle": "Pilgrim Guide"
+        },
+        "trust": {
+            "banner": "Crowd status is estimated using historical Kumbh patterns and zone-capacity simulations. No personal tracking or cameras are used."
+        },
+        "map": {
+            "title": "Live Area Status",
+            "updated": "Updated",
+            "legend": {
+                "safe": "Safe",
+                "moderate": "Moderate",
+                "busy": "Busy",
+                "avoid": "Avoid"
+            }
+        },
+        "status": {
+            "safe": {
+                "title": "Movement is Smooth",
+                "message": "You can proceed calmly towards the ghats. No major delays reported."
+            },
+            "busy": {
+                "title": "High Traffic in City",
+                "message": "Some areas are busy. Please follow the 'Green' paths to reach the river safely."
+            },
+            "critical": {
+                "title": "⚠ OFFICIAL ALERT: RESTRICTED MOVEMENT",
+                "message": "Please remain calm and follow police instructions. Avoid the river banks purely for safety."
+            }
+        },
+        "guidance": {
+            "suggested": "Suggested Paths",
+            "avoid": "High Traffic Areas",
+            "flowSmooth": "Flow is Smooth",
+            "wait": "min wait"
+        },
+        "emergency": {
+            "title": "Need Help?",
+            "subtitle": "Police & Medical",
+            "call": "Call",
+            "confirm": "⚠️ CONFIRM EMERGENCY CALL\n\nAre you sure you want to dial {number} for Police/Medical assistance?"
+        },
+        "connectionError": "⚠️ Connection Lost. Showing last known valid data. Reconnecting..."
+    }
+}

@@ -1,0 +1,762 @@
+/* Global Styles */
+@import 'leaflet/dist/leaflet.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-blue: #003366;
+  --primary-orange: #FF9933;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  /* Highly opaque for readability */
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --text-dark: #1a1a1a;
+  --text-light: #555555;
+  --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+  /* Government Palette Re-definitions for Dashboard Compatibility if needed (User CSS overwrites these variables, but these are from User CSS) */
+  /* If Dashboard used --status-safe, we need to make sure they are present or Dashboard will break. 
+     User CSS does NOT include them. I will ADD them back below the user vars to ensure Dashboard works. */
+
+  /* Status Colors - Preserved for AuthorityDashboard */
+  --status-safe: #059669;
+  --status-safe-bg: #ecfdf5;
+  --status-safe-text: #064e3b;
+  --status-moderate: #d97706;
+  /* User uses this too */
+  --status-moderate-bg: #fffbeb;
+  --status-moderate-text: #92400e;
+  --status-busy: #ea580c;
+  --status-busy-bg: #fff7ed;
+  --status-critical: #dc2626;
+  --status-critical-bg: #fef2f2;
+
+  /* Dashboard Specific */
+  --dashboard-bg: #f4f6f8;
+  --dashboard-card-bg: #ffffff;
+  --dashboard-text-main: #111827;
+  --dashboard-text-muted: #6b7280;
+  --dashboard-border: #e2e8f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', serif;
+  /* Professional Font */
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+  overflow-y: auto;
+  /* Allow vertical scroll */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Align to top for scrolling */
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background Layer - Photo with Overlay */
+.background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url('/background.jpg') no-repeat center center;
+  background-size: cover;
+  filter: blur(4px);
+  /* Soft blur as requested */
+}
+
+/* Dark overlay for contrast */
+.background-layer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  /* Ensure it takes full height */
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 3rem;
+  /* Reduced top/bottom padding */
+  position: relative;
+  /* Removed overflow: hidden to allow content to dictate height */
+}
+
+/* Header */
+/* Header: Use Grid for strict separation and alignment */
+.main-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  /* Left spacer, Center Content, Right Content */
+  align-items: flex-start;
+  /* Align top to allow toggle to sit at top right */
+  width: 100%;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.logo-section {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  /* Ensure logo doesn't accidentally expand */
+  max-width: 100%;
+}
+
+.title-group h1 {
+  font-size: 1.85rem;
+  /* Reduced from 2.5rem */
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.title-group .subtitle {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  /* Slightly less contrast */
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.language-toggle {
+  grid-column: 3;
+  justify-self: end;
+  /* Align to right edge */
+  align-self: flex-start;
+  /* Align to top */
+  background: rgba(255, 255, 255, 0.15);
+  padding: 3px;
+  border-radius: 999px;
+  display: flex;
+  gap: 2px;
+  backdrop-filter: blur(4px);
+  position: static;
+  /* Remove absolute positioning */
+  transform: none;
+  margin-top: 0;
+  /* Ensure it sits at the top */
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 4px 12px;
+  /* Smaller padding */
+  border-radius: 999px;
+  font-size: 0.75rem;
+  /* Smaller font */
+  font-weight: 600;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lang-btn.active {
+  background: white;
+  color: var(--primary-blue);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+  /* Reduced gap */
+  overflow: visible;
+  padding: 0.5rem 0;
+}
+
+.hero-title {
+  font-size: 1.35rem;
+  /* Significantly reduced */
+  font-weight: 500;
+  /* Lighter weight - Secondary visual */
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.9);
+  background: none;
+  /* Removed gradient text for cleaner look */
+  -webkit-text-fill-color: initial;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: -0.75rem;
+}
+
+.hero-subtext {
+  font-size: 1.1rem;
+  /* Slightly smaller */
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.25rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  font-weight: 300;
+}
+
+/* Emergency Banner */
+.emergency-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: gentlePulse 3s ease-in-out infinite;
+}
+
+.emergency-banner svg {
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+@keyframes gentlePulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
+}
+
+
+/* Cards */
+.cards-container {
+  display: flex;
+  gap: 1.5rem;
+  /* Reduced gap */
+  width: 100%;
+  max-width: 900px;
+  /* Slightly tighter width */
+  justify-content: center;
+  align-items: stretch;
+  padding: 0.5rem;
+}
+
+.access-card {
+  flex: 1;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  /* slightly less round */
+  padding: 2rem 1.75rem;
+  /* Compact padding */
+  text-decoration: none;
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  /* Fill flex container */
+}
+
+.access-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.access-card h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.access-card p {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  max-width: 80%;
+}
+
+.card-action {
+  margin-top: auto;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.access-card:hover .card-action {
+  opacity: 1;
+}
+
+/* Specific Card Themes */
+.authority-card {
+  border-top: 6px solid var(--primary-blue);
+}
+
+.authority-card .card-icon {
+  filter: drop-shadow(0 4px 6px rgba(0, 51, 102, 0.2));
+}
+
+.authority-card .card-action {
+  color: var(--primary-blue);
+}
+
+.pilgrim-card {
+  border-top: 6px solid var(--primary-orange);
+}
+
+.pilgrim-card .card-icon {
+  filter: drop-shadow(0 4px 6px rgba(55, 28, 1, 0.2));
+}
+
+.pilgrim-card .card-action {
+  color: #d97706;
+  /* dark amber-orange */
+}
+
+
+
+
+/* Footer */
+.main-footer {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(19, 18, 18, 0.863);
+  color: var(--text-light);
+  color: #f4eeee;
+  font-size: 0.875rem;
+}
+
+.trust-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.7;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+/* Responsive */
+/* Responsive Design */
+
+/* Tablet & Smaller Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .app-container {
+    padding: 1.5rem 2rem;
+  }
+
+  .cards-container {
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
+  .access-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+}
+
+/* Tablets (Portrait) & Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+    min-height: 100vh;
+    /* Ensure full height */
+    height: auto;
+  }
+
+  body {
+    /* Already handling overflow-y in global body */
+  }
+
+  .main-header {
+    display: flex;
+    /* Switch back to flex column for mobile stack */
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .logo-section {
+    /* No grid column needed in flex */
+  }
+
+  .language-toggle {
+    /* Stack it */
+    grid-column: auto;
+    /* Reset grid */
+    position: relative;
+    top: 0;
+    justify-self: center;
+    /* Center it on mobile */
+    align-self: center;
+    margin-top: 0.5rem;
+  }
+
+  .hero-section {
+    padding: 2rem 0;
+    justify-content: flex-start;
+    /* Start from top on mobile */
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+    margin-top: 1rem;
+  }
+
+  .hero-subtext {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    gap: 1.5rem;
+    margin: 0 auto;
+    /* Center individual items */
+  }
+
+  .access-card {
+    width: 100%;
+    min-height: auto;
+    /* Allow auto height */
+  }
+
+  .main-footer {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem 0;
+    margin-top: auto;
+    /* Push to bottom if content is short */
+  }
+}
+
+/* Login Page Styles */
+.login-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.login-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.login-header h2 {
+  font-size: 1.75rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.login-header p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* Role Selector */
+.role-selector {
+  display: flex;
+  gap: 1rem;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.role-option {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--text-light);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.role-option:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.role-option .role-icon-small {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Active States */
+.role-option.active {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+/* Authority Active */
+.role-option#role-authority.active {
+  color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  background: rgba(0, 51, 102, 0.05);
+}
+
+/* Pilgrim Active */
+.role-option#role-pilgrim.active {
+  color: var(--primary-orange);
+  border-color: var(--primary-orange);
+  background: rgba(255, 153, 51, 0.05);
+}
+
+.role-hint {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  min-height: 1.2em;
+  /* Prevent jump */
+  font-style: italic;
+  margin-top: -0.5rem;
+}
+
+/* Login Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-left: 0.25rem;
+}
+
+.input-group input {
+  padding: 0.875rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+  background: white;
+}
+
+/* Password Feature Styles */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px;
+  /* Space for icon */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--text-light);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-password:hover {
+  opacity: 1;
+  color: var(--primary-blue);
+}
+
+.forgot-password-link {
+  font-size: 0.85rem;
+  color: var(--primary-blue);
+  text-decoration: none;
+  text-align: right;
+  margin-top: 0.25rem;
+  font-weight: 500;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+  display: inline-block;
+  align-self: flex-end;
+  /* Right align in flex container */
+}
+
+.forgot-password-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Submit Button */
+.login-btn {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  border: none;
+  background: var(--primary-blue);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 51, 102, 0.2);
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 51, 102, 0.3);
+}
+
+/* Footer Links */
+.login-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.demo-note {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  opacity: 0.8;
+}
+
+.back-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.back-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Dynamic State for Pilgrim Selection (Button Color) */
+body.role-pilgrim-selected .login-btn {
+  background: var(--primary-orange);
+  box-shadow: 0 4px 12px rgba(255, 153, 51, 0.2);
+}
+
+body.role-pilgrim-selected .input-group input:focus {
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.1);
+}
