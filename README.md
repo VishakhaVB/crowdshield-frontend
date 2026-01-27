@@ -149,71 +149,79 @@ client/
 ├── vite.config.js
 └── package.json
 ```
-⚙️ Installation & Setup
-1️⃣ Clone the Repository
+## ⚙️ Installation & Setup
+
+Follow the steps below to run the CrowdShield Frontend locally on your system.
+
+### 1️⃣ Clone the Repository
+```bash
 git clone https://github.com/VishakhaVB/crowdshield-frontend.git
 cd crowdshield-frontend
+```
 2️⃣ Install Dependencies
+```
 npm install
-3️⃣ Run Locally
+```
+3️⃣ Run the Application Locally
+```
 npm run dev
-📍 App runs at:
+```
+---
+📍 The application will be available at:
 
 http://localhost:5173
 🔗 Backend Integration
-This frontend is fully API-driven and designed to integrate with the CrowdShield Backend.
-
+This frontend is fully API-driven and designed to integrate seamlessly with the CrowdShield Backend.
+---
 API Configuration
-Update base URL in:
+Update the backend base URL in the following file:
 
 src/config.js
-Example:
-
-API_BASE_URL = https://your-backend-url/api
-Ensure backend is running before testing live features.
-
+Example Configuration
+API_BASE_URL = "https://your-backend-url/api";
+---
+⚠️ Ensure the backend server is running before testing live or dynamic features.
 🔐 Security & Privacy
-🚫 No personal tracking
-
-🚫 No camera feeds
-
-📊 Crowd data is estimated & aggregated
-
-🔐 Architecture supports role-based access
-
-🧠 Designed for ethical AI & public safety
-
+CrowdShield is designed with public safety and ethical data usage as top priorities.
+🚫 No personal user tracking
+🚫 No camera feeds or facial recognition
+📊 Crowd data is estimated and aggregated
+🔐 Architecture supports role-based access control
+🧠 Designed for ethical AI and public safety systems
+---
 🎯 Use Cases
-CrowdShield is ideal for:
+CrowdShield is ideal for managing and monitoring:
 
 🕌 Religious events (Kumbh Mela, Yatra, Pilgrimages)
 
-🎉 Festivals & mass celebrations
+🎉 Large public festivals & celebrations
 
-🏟️ Stadiums & sports events
+🏟️ Stadiums and sports events
 
-🚨 Emergency crowd management
+🚨 Emergency and disaster-prone crowd scenarios
 
-🏛️ Government & municipal authorities
-
+🏛️ Government and municipal monitoring systems
+---
 📈 Future Enhancements
-🔴 Real-time crowd density from sensors
+Planned upgrades and roadmap features include:
+
+🔴 Real-time crowd density using IoT sensors
 
 🗺️ Live GPS-based route optimization
 
-📊 Advanced analytics dashboards
+📊 Advanced analytics & insights dashboards
 
 🔔 Emergency broadcast & alert system
 
-🤖 AI-based crowd prediction
+🤖 AI-based crowd prediction & risk detection
 
-🔐 Role-based access control (RBAC)
+🔐 Full role-based access control (RBAC)
 
-📡 WebSockets for live updates
-
+📡 WebSockets for real-time data updates
+---
 🚀 Deployment
-The frontend is deployed on Netlify.
+The CrowdShield Frontend is deployed on Netlify.
 
-Production URL:
+🌐 Production URL
 
 https://crowdshield-system.netlify.app
