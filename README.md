@@ -193,6 +193,7 @@ CrowdShield is designed with public safety and ethical data usage as top priorit
 📊 Crowd data is estimated and aggregated
 🔐 Architecture supports role-based access control
 🧠 Designed for ethical AI and public safety systems
+
 ---
 
 🎯 Use Cases
