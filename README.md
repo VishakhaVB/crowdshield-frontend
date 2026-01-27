@@ -11,7 +11,7 @@ The system provides:
 🌐 **Live Demo**  
 🔗 https://crowdshield-system.netlify.app
 
-```
+---
 
 ## 📌 Table of Contents
 - [Problem Statement](#-problem-statement)
@@ -28,7 +28,7 @@ The system provides:
 - [Deployment](#-deployment)
 - [Contributors](#-contributors)
 
-```
+---
 
 ## 🎯 Problem Statement
 
