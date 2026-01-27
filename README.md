@@ -167,19 +167,24 @@ npm install
 npm run dev
 ```
 ---
+
 📍 The application will be available at:
 
 http://localhost:5173
 🔗 Backend Integration
 This frontend is fully API-driven and designed to integrate seamlessly with the CrowdShield Backend.
+
 ---
+
 API Configuration
 Update the backend base URL in the following file:
 
 src/config.js
 Example Configuration
 API_BASE_URL = "https://your-backend-url/api";
+
 ---
+
 ⚠️ Ensure the backend server is running before testing live or dynamic features.
 🔐 Security & Privacy
 CrowdShield is designed with public safety and ethical data usage as top priorities.
@@ -189,6 +194,7 @@ CrowdShield is designed with public safety and ethical data usage as top priorit
 🔐 Architecture supports role-based access control
 🧠 Designed for ethical AI and public safety systems
 ---
+
 🎯 Use Cases
 CrowdShield is ideal for managing and monitoring:
 
@@ -201,7 +207,9 @@ CrowdShield is ideal for managing and monitoring:
 🚨 Emergency and disaster-prone crowd scenarios
 
 🏛️ Government and municipal monitoring systems
+
 ---
+
 📈 Future Enhancements
 Planned upgrades and roadmap features include:
 
@@ -218,7 +226,9 @@ Planned upgrades and roadmap features include:
 🔐 Full role-based access control (RBAC)
 
 📡 WebSockets for real-time data updates
+
 ---
+
 🚀 Deployment
 The CrowdShield Frontend is deployed on Netlify.
 
