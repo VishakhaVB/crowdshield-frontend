@@ -171,7 +171,8 @@ npm run dev
 📍 The application will be available at:
 
 http://localhost:5173
-🔗 Backend Integration
+
+##🔗 Backend Integration
 This frontend is fully API-driven and designed to integrate seamlessly with the CrowdShield Backend.
 
 ---
@@ -196,7 +197,7 @@ CrowdShield is designed with public safety and ethical data usage as top priorit
 
 ---
 
-🎯 Use Cases
+##🎯 Use Cases
 CrowdShield is ideal for managing and monitoring:
 
 🕌 Religious events (Kumbh Mela, Yatra, Pilgrimages)
@@ -211,7 +212,7 @@ CrowdShield is ideal for managing and monitoring:
 
 ---
 
-📈 Future Enhancements
+##📈 Future Enhancements
 Planned upgrades and roadmap features include:
 
 🔴 Real-time crowd density using IoT sensors
@@ -230,7 +231,18 @@ Planned upgrades and roadmap features include:
 
 ---
 
-🚀 Deployment
+## images
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/beb7d542-1d9d-467a-b859-7828f651abcb" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/88e954c7-47e0-47e0-8be7-eb526f22e116" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eac1a0fb-5081-43bd-a859-7b3d9203b3f3" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/953dd30b-f24e-4d5b-8fcb-26bd27363a42" />
+
+---
+
+##🚀 Deployment
 The CrowdShield Frontend is deployed on Netlify.
 
 🌐 Production URL
