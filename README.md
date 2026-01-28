@@ -233,19 +233,23 @@ Planned upgrades and roadmap features include:
 ---
 
 ## images
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/beb7d542-1d9d-467a-b859-7828f651abcb" />
+<img width="1913" height="955" alt="image" src="https://github.com/user-attachments/assets/bd9a5b16-7e0d-4d1a-998d-178fd6fde985" />
+
 
 ---
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/88e954c7-47e0-47e0-8be7-eb526f22e116" />
+<img width="1918" height="952" alt="image" src="https://github.com/user-attachments/assets/e50df53f-8110-4b63-9d8e-9155d953ef3c" />
+
 
 ---
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eac1a0fb-5081-43bd-a859-7b3d9203b3f3" />
+<img width="1918" height="955" alt="image" src="https://github.com/user-attachments/assets/a5f7b2b4-f406-460c-a345-f4455b9d429e" />
+
 
 ---
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/953dd30b-f24e-4d5b-8fcb-26bd27363a42" />
+<img width="1918" height="957" alt="image" src="https://github.com/user-attachments/assets/1996dc85-2843-470a-adfa-10954753abc1" />
+
 
 ---
 
