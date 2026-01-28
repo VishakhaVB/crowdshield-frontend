@@ -186,18 +186,19 @@ API_BASE_URL = "https://your-backend-url/api";
 
 ---
 
-⚠️ Ensure the backend server is running before testing live or dynamic features.
-🔐 Security & Privacy
-CrowdShield is designed with public safety and ethical data usage as top priorities.
-🚫 No personal user tracking
-🚫 No camera feeds or facial recognition
-📊 Crowd data is estimated and aggregated
-🔐 Architecture supports role-based access control
-🧠 Designed for ethical AI and public safety systems
-
+###
+- ⚠️ Ensure the backend server is running before testing live or dynamic features.
+- 🔐 Security & Privacy
+- CrowdShield is designed with public safety and ethical data usage as top priorities.
+- 🚫 No personal user tracking
+- 🚫 No camera feeds or facial recognition
+- 📊 Crowd data is estimated and aggregated
+- 🔐 Architecture supports role-based access control
+- 🧠 Designed for ethical AI and public safety systems
+###
 ---
 
-##🎯 Use Cases
+## 🎯 Use Cases
 CrowdShield is ideal for managing and monitoring:
 
 🕌 Religious events (Kumbh Mela, Yatra, Pilgrimages)
@@ -212,7 +213,7 @@ CrowdShield is ideal for managing and monitoring:
 
 ---
 
-##📈 Future Enhancements
+## 📈 Future Enhancements
 Planned upgrades and roadmap features include:
 
 🔴 Real-time crowd density using IoT sensors
@@ -234,15 +235,21 @@ Planned upgrades and roadmap features include:
 ## images
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/beb7d542-1d9d-467a-b859-7828f651abcb" />
 
+---
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/88e954c7-47e0-47e0-8be7-eb526f22e116" />
 
+---
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eac1a0fb-5081-43bd-a859-7b3d9203b3f3" />
+
+---
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/953dd30b-f24e-4d5b-8fcb-26bd27363a42" />
 
 ---
 
-##🚀 Deployment
+## 🚀 Deployment
 The CrowdShield Frontend is deployed on Netlify.
 
 🌐 Production URL
