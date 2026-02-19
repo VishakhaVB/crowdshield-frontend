@@ -13,23 +13,6 @@ The system provides:
 
 ---
 
-## 📌 Table of Contents
-- [Problem Statement](#-problem-statement)
-- [Solution Overview](#-solution-overview)
-- [Key Features](#-key-features)
-- [Screens Overview](#-screens-overview)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Installation & Setup](#-installation--setup)
-- [Backend Integration](#-backend-integration)
-- [Use Cases](#-use-cases)
-- [Security & Privacy](#-security--privacy)
-- [Future Enhancements](#-future-enhancements)
-- [Deployment](#-deployment)
-- [Contributors](#-contributors)
-
----
-
 ## 🎯 Problem Statement
 
 Large public gatherings such as **religious pilgrimages, festivals, political rallies, and sporting events** face serious challenges:
@@ -148,6 +131,7 @@ client/
 │
 ├── vite.config.js
 └── package.json
+
 ```
 ## ⚙️ Installation & Setup
 
@@ -182,7 +166,8 @@ Update the backend base URL in the following file:
 
 src/config.js
 
-Example Configuration
+Example Configuration:
+
 API_BASE_URL = "https://your-backend-url/api";
 
 ---
