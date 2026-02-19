@@ -181,6 +181,7 @@ API Configuration
 Update the backend base URL in the following file:
 
 src/config.js
+
 Example Configuration
 API_BASE_URL = "https://your-backend-url/api";
 
