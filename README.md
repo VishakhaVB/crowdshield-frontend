@@ -4,9 +4,9 @@
 CrowdShield is a **modern, scalable, safety-first frontend web application** designed to **monitor, analyze, and guide crowd movement** during **large-scale public events** such as pilgrimages, festivals, rallies, and mass gatherings.
 
 The system provides:
-- **Real-time authority dashboards** for monitoring crowd density & flow
-- **Pilgrim-friendly guidance interfaces** for safe navigation
-- **Data-driven UI** built for future AI & real-time integrations
+- **Real-time authority dashboards** for monitoring crowd density & flow.
+- **Pilgrim-friendly guidance interfaces** for safe navigation.
+- **Data-driven UI** built for future AI & real-time integrations.
 
 🌐 **Live Demo**  
 🔗 https://crowdshield-system.netlify.app
